@@ -13,7 +13,7 @@ router.get('/all', async (req, res) => {
     }
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id',async (req, res) => {
     try {
         const game = await Game.findOne({ where: { id: req.params.id, owner_id: req.user.id } });
 
@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
     }
 })
 
-router.post('/create', (req, res) => {
+router.post('/create', async (req, res) => {
     try {
         const game = await Game.create({
             title: req.body.game.title,
@@ -44,7 +44,7 @@ router.post('/create', (req, res) => {
     }
 })
 
-router.put('/update/:id', (req, res) => {
+router.put('/update/:id', async (req, res) => {
     try {
         const gameUpdate = Game.update({
             title: req.body.game.title,
@@ -68,7 +68,7 @@ router.put('/update/:id', (req, res) => {
     }
 })
 
-router.delete('/remove/:id', (req, res) => {
+router.delete('/remove/:id', async (req, res) => {
     try {
         const game = Game.destroy({
             where: {

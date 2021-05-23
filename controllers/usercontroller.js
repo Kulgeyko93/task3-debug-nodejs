@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
-router.post('/signup', (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const body = req.body
 
@@ -28,7 +28,7 @@ router.post('/signup', (req, res) => {
     }
 })
 
-router.post('/signin', (req, res) => {
+router.post('/signin', async (req, res) => {
     try {
         const body = req.body
 
